@@ -1,1 +1,1 @@
-# EA4
+# Economic algorithms exercise 4 question 1
