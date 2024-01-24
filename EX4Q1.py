@@ -1,4 +1,3 @@
-
 import cvxpy
 import numpy as np
 import timeit
@@ -94,10 +93,10 @@ def egalitarian_allocation(valuations: list[list[float]]):
 
 
 if __name__ == '__main__':
-    resources_amount = [3*x for x in range(1, 30)]
+    resources_amount = [10,20,30,40,50,60,70,80]
     execution_times_boolean = []
     execution_times = []
-    times_to_run = 20
+    times_to_run = 1
 
     for amount in resources_amount:
         # rnd res valuations between 10 and 100 with 5 players
@@ -110,10 +109,11 @@ if __name__ == '__main__':
         execution_times.append(execution_time)
 
     # Create a graph
-    plt.plot(resources_amount, execution_times_boolean, color="red", marker="o")
-    plt.plot(resources_amount, execution_times, color="blue", marker="o")
+    plt.plot(resources_amount, execution_times_boolean, label="egalitarian_allocation_boolean", color="red", marker="o")
+    plt.plot(resources_amount, execution_times, label="egalitarian_allocation", color="blue", marker="o")
     plt.title('Execution Time vs Resource amount')
     plt.xlabel('Number of resource')
     plt.ylabel('Execution Time (seconds) - less is better')
+    plt.legend()
     plt.grid(True)
     plt.show()
